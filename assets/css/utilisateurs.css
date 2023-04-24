@@ -1,0 +1,16 @@
+#container .fiche {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ficheUser {
+    border: solid black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 70%;
+}
+
+h1 {
+    font-size: 1.5em;
+}

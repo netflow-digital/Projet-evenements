@@ -1,0 +1,35 @@
+h1 {
+    margin-bottom: 3rem;
+}
+
+.section1 ul {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+}
+
+.section1 li {
+    list-style-type: none;
+}
+
+.description {
+    margin-top: 4rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    background-color: #F2F2F2;
+    padding-left: 1rem;
+    padding-top: 2rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    text-align: justify;
+}
+
+.image {
+    text-align: center;
+}
+
+#container .image img {
+    width: 60vw;
+    height: 70vh;
+
+}

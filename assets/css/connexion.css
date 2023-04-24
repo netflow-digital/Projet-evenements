@@ -1,0 +1,28 @@
+h1 {
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input {
+    padding-bottom: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+input.btn.btn-primary {
+    background-color: #0d6efd;
+    width: 20%;
+    color: white;
+    border: #0d6efd;
+}
+
+.inscription a {
+    color: purple;
+}
