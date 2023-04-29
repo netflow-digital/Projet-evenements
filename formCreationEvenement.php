@@ -80,7 +80,7 @@ session_start();
 
                             <?php
                             //connection bdd
-                            $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+                            include './config/connexionBdd.php';
                             // Requête SQL pour récupérer les lieux potentiel pour les événements"
                             $reponse = 'SELECT * FROM lieux';
                             $resultat = $cnx->query($reponse);

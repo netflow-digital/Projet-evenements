@@ -25,7 +25,7 @@ if (isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['date
 
 //connexion à la base de donnée
 try {
-    $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+    include './config/connexionBdd.php';
     //vérifier qu'il n'y a pas d'événemenet avec le même nom, le même jour
     $stmtTitleDate = $cnx->prepare('SELECT * FROM evenements WHERE evenements.titre=:titre AND evenements.date=:date');
     $stmtTitleDate->bindParam(':titre', $titre);
@@ -62,7 +62,7 @@ try {
 
     // enregistrer les données dans la base de donnée
     ////faire la requête SQL
-    $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+    include './config/connexionBdd.php';
     $stmt = $cnx->prepare("INSERT INTO evenements(id_events, titre, description, date, nbPersonnesMax, imageSrc,id_utilisateurs, id_lieux) VALUES(NULL, :titre, :description, :date, :nbPersonnesMax, :imageSrc, :id_utilisateurs, :id_lieux) ");
     $stmt->bindParam(':titre', $titre);
     $stmt->bindParam(':description', $description);

@@ -27,7 +27,7 @@ $requete = "SELECT evenements.*, lieux.nom, lieux.adresse, lieux.codePostal, lie
     include TEMPLATE . '_header.php';
     // connexion bdd
     try {
-        $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+        include './config/connexionBdd.php';
         $stmt = $cnx->prepare($requete);
         if (!empty($_SESSION['id_utilisateurs'])) {
             $stmt->bindParam(':userId', $_SESSION['id_utilisateurs']);

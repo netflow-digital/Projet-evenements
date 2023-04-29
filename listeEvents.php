@@ -25,7 +25,7 @@ session_start();
             try {
                 // Connexion à la base de données evenements
                 $user = $_SESSION['id_utilisateurs'];
-                $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+                include './config/connexionBdd.php';
 
                 // Requête SQL pour récupérer les événements auxquels l'utilisateur est inscrit
                 $stmt = $cnx->prepare("SELECT * FROM `listeUtilisateurInscritAEvent` WHERE id_utilisateurs=:user");

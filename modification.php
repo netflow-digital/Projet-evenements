@@ -6,7 +6,7 @@ session_start();
 $user = $_SESSION['id_utilisateurs'];
 //connexion à la base de donnée
 try {
-    $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+    include './config/connexionBdd.php';
 } catch (Exception $e) {
     $e = 'Désolée la connexion à la base de donnée ne marche pas pour le moment';
     echo $e;

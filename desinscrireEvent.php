@@ -9,7 +9,7 @@ $id_events = $_GET['id_evenement'];
 
 // se désinscire de l'event
 try {
-    $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+    include './config/connexionBdd.php';
     $stmt = $cnx->prepare('DELETE FROM `inscrire` WHERE `inscrire`.`id_utilisateurs` = :id_utilisateurs AND `inscrire`.`id_events` = :id_events');
     $stmt->bindParam(':id_utilisateurs', $id_utilisateurs);
     $stmt->bindParam(':id_events', $id_events);

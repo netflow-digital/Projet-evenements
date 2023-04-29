@@ -4,7 +4,7 @@ include './config/config.php';
 session_start();
 //connexion à la bdd
 try {
-    $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+    include './config/connexionBdd.php';
     $stmt = $cnx->prepare("SELECT * FROM utilisateurs");
     $stmt->execute();
     $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);

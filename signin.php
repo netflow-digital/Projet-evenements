@@ -5,7 +5,7 @@ session_start();
 
 //connexion BDD
 try {
-    $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+    include './config/connexionBdd.php';
     //vérifier s'il existe un utilisateur dans la bdd avec cet email
     $stmt = $cnx->prepare("SELECT * FROM `utilisateurs` WHERE email=:email");
     $email = htmlspecialchars($_POST['email']);

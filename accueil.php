@@ -5,7 +5,7 @@ session_start();
 $id_utilisateurs = isset($_SESSION['id_utilisateurs']) ? $_SESSION['id_utilisateurs'] : null;
 
 try {
-    $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+    include './config/connexionBdd.php';
     $stmt = $cnx->prepare("CALL getEvenementsInscrits(:id_utilisateurs)");
     $stmt->bindParam(':id_utilisateurs', $id_utilisateurs, PDO::PARAM_INT);
     $stmt->execute();

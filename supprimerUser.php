@@ -6,7 +6,7 @@ $id_utilisateurs = $_GET['id_utilisateurs'];
 
 //connexion à la bdd
 try {
-    $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+    include './config/connexionBdd.php';
     $stmt = $cnx->prepare('DELETE FROM utilisateurs WHERE utilisateurs.id_utilisateurs=:id_utilisateurs');
     $stmt->bindParam(':id_utilisateurs', $id_utilisateurs);
     $stmt->execute();

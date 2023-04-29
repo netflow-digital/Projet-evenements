@@ -26,7 +26,7 @@ session_start();
 
         try {
             // connexion à la bdd
-            $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+            include './config/connexionBdd.php';
             //requête préparée avec un paramètre => id=?
             $stmt = $cnx->prepare("SELECT * FROM liste_events WHERE id_events=?");
             $stmt->execute([$id]); //méthode execute() attend un tableau de valeurs en paramètre correspondant aux paramètres de la requête SQL

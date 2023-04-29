@@ -40,7 +40,7 @@ session_start();
         $userConnect = $_SESSION['id_utilisateurs'];
         // Connexion à la base de donnée
         try {
-            $cnx = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';port=3306', DB_USER, DB_PASSWORD);
+            include './config/connexionBdd.php';
             $stmt = $cnx->prepare("SELECT nom, prenom FROM `utilisateurs` WHERE id_utilisateurs=:userConnect ");
             $stmt->bindParam(':userConnect', $userConnect);
             $stmt->execute();
