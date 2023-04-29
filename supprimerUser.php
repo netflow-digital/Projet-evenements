@@ -3,7 +3,6 @@ include './config/config.php';
 session_start();
 //récupérer l'id de l'user en question
 $id_utilisateurs = $_GET['id_utilisateurs'];
-var_dump($id_utilisateurs);
 
 //connexion à la bdd
 try {

@@ -4,7 +4,6 @@ session_start();
 
 
 //vérifier les données de $_POST
-
 //// on vérifie que les champs ne sont pas vides
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['password'])) {
     if ($_POST['nom'] != '' && $_POST['prenom'] != '' && $_POST['email'] != '' && $_POST['password'] != '') {

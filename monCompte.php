@@ -14,6 +14,7 @@ session_start();
     <link rel="stylesheet" href="<?= CSS ?>header.css">
     <link rel="stylesheet" href="<?= CSS ?>style.css">
     <link rel="stylesheet" href="<?= CSS ?>changeMdp.css">
+    <link rel="stylesheet" href="<?= CSS ?>responsive.css">
     <script defer src="<?= JS ?>changeMdp.js"></script>
 
 </head>
@@ -61,7 +62,7 @@ session_start();
             <br>
             <label for="">Repéter votre nouveau mot de passe</label><br>
             <input type="text" name="md2" id="mdp2" required><br>
-            <input type="submit" id="buttonSubmit" value="Mettre à jour mon mot de passe" disabled>
+            <input type="submit" id="buttonSubmit" value="Mettre à jour" disabled>
         </form>
 
 

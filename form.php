@@ -14,6 +14,7 @@ session_start();
     <link rel="stylesheet" href="<?= CSS ?>style.css">
     <link rel="stylesheet" href="<?= CSS ?>header.css">
     <link rel="stylesheet" href="<?= CSS ?>contact.css">
+    <link rel="stylesheet" href="<?= CSS ?>responsive.css">
     <script defer src="<?= JS ?>formulaire.js"></script>
 </head>
 

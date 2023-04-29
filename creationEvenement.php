@@ -36,7 +36,6 @@ try {
         $_SESSION['erreurEventExistant'] = "Un événement à déja lieu le même jour ";
         header('location:formCreationEvenement.php');
     }
-    var_dump("étape 1");
     //vérifier le format de l'image
     if ($_FILES["imageSrc"]["size"] > 0) {
         // vérification du type de fichier

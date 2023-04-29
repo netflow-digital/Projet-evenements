@@ -31,6 +31,15 @@ main {
     padding-bottom: 3rem;
 }
 
+form.filtrage {
+    display: flex;
+    justify-content: center;
+}
+
+form.filtrage>* {
+    margin-left: 10px;
+}
+
 .vignette {
     display: flex;
     margin-top: 2rem;
@@ -63,11 +72,13 @@ main {
     width: 25%;
     height: 2rem;
     border-radius: 20px;
+    white-space: normal;
 }
 
 .descriptif button a {
     color: #F2F2F2;
 }
+
 
 .disposition {
     display: flex;

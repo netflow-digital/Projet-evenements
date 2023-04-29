@@ -49,9 +49,6 @@ session_start();
                 <input type="password" name="password" class="form-control">
             </div>
             <input type="submit" value="Enregistrer" class="btn btn-primary">
-
-
-
         </form> <!-- avec un formulaire on use la methode post -->
     </main>
 

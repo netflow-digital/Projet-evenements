@@ -10,6 +10,7 @@ try {
     $stmt->bindParam(':id_utilisateurs', $id_utilisateurs, PDO::PARAM_INT);
     $stmt->execute();
     $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor(); // Fermeture des résultats de requête précédents
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
@@ -33,6 +34,45 @@ try {
     <?php include TEMPLATE . '_header.php'; ?>
     <main id="container">
         <section>
+            <div>
+                <form action="filtrage.php" method="post" class="filtrage">
+                    <div>
+                        <label for="lieuxId"> Filtrer par lieux</label>
+                        <select name="lieuxId" id="lieuxId">
+                            <option value=""></option>
+                            <?php
+                            // Requête SQL pour récupérer les ID des lieux"
+                            $lieuxQuery = "SELECT ville, id_lieux FROM lieux";
+                            $resultLieux = $cnx->query($lieuxQuery);
+
+                            // Création des options du select
+                            while ($row = $resultLieux->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<option value='" . $row['id_lieux'] . "'>" . $row['ville'] . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="dateEvt"> Filtrer par date</label>
+                        <select name="dateEvt" id="dateEvt">
+                            <option value=""></option>
+                            <?php
+                            // Requête SQL pour récupérer les ID des lieux"
+                            $eventQuery = "SELECT date FROM evenements";
+                            $resultEvent = $cnx->query($eventQuery);
+
+                            // Création des options du select
+                            while ($re = $resultEvent->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<option value='" . $re['date'] . "'>" . $re['date'] . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <button type="submit"> Valider</button>
+                </form>
+            </div>
+        </section>
+        <section>
             <?php foreach ($evenements as $evt) : ?>
                 <div class="vignette">
                     <div><img src="<?= IMAGES ?><?= $evt['imageSrc'] ?>"></img></div>
@@ -47,7 +87,7 @@ try {
                             <p>Nombre de places : <?= $evt['nbPersonnesMax'] ?></p>
                         </div>
                         <div class="disposition">
-                            <p>Nombre de places restante : <?= $evt['nbPlacesRestantes'] ?></p>
+                            <p>Nombre de places restantes : <?= $evt['nbPlacesRestantes'] ?></p>
                             <?php if ($id_utilisateurs !== null && $_SESSION['role_utilisateurs'] == 'admin') :    ?>
                                 <button class="augmentationPlace"><a href="augmentationPlace.php?id_evenement=<?= $evt['id_events']; ?> & nbPersonnesMax=<?= $evt['nbPersonnesMax']; ?>"> + </a></button>
                                 <button class="diminutionPlace"><a href="diminutionPlace.php?id_evenement=<?= $evt['id_events']; ?> & nbPersonnesMax=<?= $evt['nbPersonnesMax']; ?>"> - </a></button>

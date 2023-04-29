@@ -14,6 +14,8 @@ session_start();
     <link rel="stylesheet" href="<?= CSS ?>style.css">
     <link rel="stylesheet" href="<?= CSS ?>header.css">
     <link rel="stylesheet" href="<?= CSS ?>creationEvent.css">
+    <link rel="stylesheet" href="<?= CSS ?>responsive.css">
+
 </head>
 
 <body>
