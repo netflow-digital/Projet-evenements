@@ -14,7 +14,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //encoder les mot de passe
         $role = 'user';
     } else {
-        header('location:inscription.php');
+        header('location:index.php?page=inscription');
     }
 }
 //// connexion à la base de donnée
@@ -27,7 +27,7 @@ try {
     $userExistant = $stmtEmail->fetch(PDO::FETCH_ASSOC);
     if ($userExistant) {
         $_SESSION['erreurEmailExistant'] = "Un compte avec cet email existe déjà ";
-        header('location:inscription.php');
+        header('location:index.php?page=inscription');
     }
 
 
@@ -40,7 +40,7 @@ try {
     $stmt->bindParam(':password', $password);
     $stmt->bindParam(':role', $role);
     $stmt->execute();
-    header('location:accueil.php');
+    header('location:index.php?page=accueil');
 } catch (PDOException $e) {
     // Affichage d'un message d'erreur si la connexion à la base de données a échoué
     echo "Erreur de connexion à la base de données : " . $e->getMessage();

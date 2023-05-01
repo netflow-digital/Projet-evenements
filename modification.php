@@ -24,5 +24,5 @@ $modificationMdp->execute();
 
 // Redirige l'utilisateur vers la page monCompte.php avec un message de confirmation
 $message = "Le mot de passe de l'utilisateur a été modifié avec succès.";
-header("Location: monCompte.php?message=" . urlencode($message));
+header("Location: index.php?page=monCompte&message=" . urlencode($message));
 exit();

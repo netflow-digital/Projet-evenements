@@ -17,7 +17,7 @@ if (isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['date
         $id_utilisateurs = htmlspecialchars($_POST['organisateur']);
         $id_lieux = htmlspecialchars($_POST['id_lieux']);
     } else {
-        header('location:formCreationEvenement.php');
+        header('location:index.php?page=creationEvent');
         var_dump('je suis dans le else');
     }
 }
@@ -34,7 +34,7 @@ try {
     $eventExistant = $stmtTitleDate->fetch(PDO::FETCH_ASSOC);
     if ($eventExistant) {
         $_SESSION['erreurEventExistant'] = "Un événement à déja lieu le même jour ";
-        header('location:formCreationEvenement.php');
+        header('location:index.php?page=creationEvent');
     }
     //vérifier le format de l'image
     if ($_FILES["imageSrc"]["size"] > 0) {
@@ -72,7 +72,7 @@ try {
     $stmt->bindParam(':id_utilisateurs', $id_utilisateurs);
     $stmt->bindParam(':id_lieux', $id_lieux);
     $stmt->execute();
-    header('location:accueil.php');
+    header('location:index.php?page=accueil');
 } catch (PDOException $e) {
     // Affichage d'un message d'erreur si la connexion à la base de données a échoué
     echo "Erreur de connexion à la base de données : " . $e->getMessage();

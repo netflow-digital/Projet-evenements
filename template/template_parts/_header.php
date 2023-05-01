@@ -3,8 +3,8 @@
 <header>
     <div class="contenant">
         <ul>
-            <li><a href="./accueil.php">Evénements</a></li>
-            <li><a href="./form.php">Nous contactez</a></li>
+            <li><a href="index.php?page=accueil">Evénements</a></li>
+            <li><a href="index.php?page=contact">Nous contacter</a></li>
             <li><a href="">A propos</a></li>
             <li><i class="fa-solid fa-user fa-2x" id="menu-icon"></i></li>
 
@@ -13,12 +13,12 @@
 
     <nav id="menuConnexion">
         <ul>
-            <li><?php if (!isset($_SESSION["id_utilisateurs"])) : ?><a href="connexion.php">Se connecter</a><?php endif ?></li>
-            <li> <?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="deconnexion.php">Se déconnecter</a><?php endif ?></li>
-            <li><?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="monCompte.php">Mon compte</a><?php endif ?></li>
-            <li><?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="./listeEvents.php">Mes événements</a><?php endif ?></li>
-            <li><?php if (isset($_SESSION['role_utilisateurs']) && $_SESSION['role_utilisateurs'] == 'admin') : ?><a href="formCreationEvenement.php"> Créer un événement </a><?php endif ?> </li>
-            <li><?php if (isset($_SESSION['role_utilisateurs']) && $_SESSION['role_utilisateurs'] == 'admin') : ?><a href="utilisateurs.php"> Liste des utilisateurs </a><?php endif ?> </li>
+            <li><?php if (!isset($_SESSION["id_utilisateurs"])) : ?><a href="index.php?page=connexion">Se connecter</a><?php endif ?></li>
+            <li> <?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="./deconnexion.php">Se déconnecter</a><?php endif ?></li>
+            <li><?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="index.php?page=monCompte">Mon compte</a><?php endif ?></li>
+            <li><?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="index.php?page=listeEvents">Mes événements</a><?php endif ?></li>
+            <li><?php if (isset($_SESSION['role_utilisateurs']) && $_SESSION['role_utilisateurs'] == 'admin') : ?><a href="index.php?page=creationEvent"> Créer un événement </a><?php endif ?> </li>
+            <li><?php if (isset($_SESSION['role_utilisateurs']) && $_SESSION['role_utilisateurs'] == 'admin') : ?><a href="index.php?page=utilisateurs"> Liste des utilisateurs </a><?php endif ?> </li>
             <!-- chemin relatif donc accès direct pour le chemin -->
         </ul>
     </nav>

@@ -21,13 +21,13 @@ try {
             $_SESSION['nom_utilisateurs'] = $utilisateur['nom'];
             $_SESSION['prenom_utilisateurs'] = $utilisateur['prenom'];
             $_SESSION['role_utilisateurs'] = $utilisateur['role'];
-            header('location:accueil.php');
+            header('location:index.php?page=accueil');
         } else {
-            header('location:connexion.php');
+            header('location:index.php?page=connexion');
         }
     } else {
         //mettre l'utilisateur en session
-        header('location:connexion.php');
+        header('location:index.php?page=connexion');
     }
 } catch (PDOException $e) {
     // Affichage d'un message d'erreur si la connexion à la base de données a échoué

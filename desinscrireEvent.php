@@ -16,7 +16,7 @@ try {
     $stmt->execute();
 
     // Rediriger l'utilisateur vers la page de l'événement avec un message de confirmation
-    header("Location: accueil.php?id_events=$id_events");
+    header("Location: index.php?page=accueil&id_events=$id_events");
     exit();
 } catch (PDOException $e) {
     // Affichage d'un message d'erreur si la connexion à la base de données a échoué

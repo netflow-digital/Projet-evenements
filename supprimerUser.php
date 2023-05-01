@@ -14,4 +14,4 @@ try {
     echo "Erreur : " . $e->getMessage();
 }
 
-header('location:utilisateurs.php');
+header('location:index.php?page=utilisateurs');

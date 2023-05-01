@@ -16,11 +16,11 @@ try {
 ?>
 <section>
     <div>
-        <form action="filtrage.php" method="post" class="filtrage">
+        <form action="index.php?page=filtrage" method="post" class="filtrage">
             <div>
                 <label for="lieuxId"> Filtrer par lieux</label>
                 <select name="lieuxId" id="lieuxId">
-                    <option value=""></option>
+                    <option value="">--Sélectionner lieu--</option>
                     <?php
                     // Requête SQL pour récupérer les ID des lieux"
                     $lieuxQuery = "SELECT ville, id_lieux FROM lieux";
@@ -36,7 +36,7 @@ try {
             <div>
                 <label for="dateEvt"> Filtrer par date</label>
                 <select name="dateEvt" id="dateEvt">
-                    <option value=""></option>
+                    <option value="">--Sélectionner date--</option>
                     <?php
                     // Requête SQL pour récupérer les ID des lieux"
                     $eventQuery = "SELECT date FROM evenements";

@@ -18,4 +18,4 @@ try {
     echo "Erreur : " . $e->getMessage();
 }
 
-header('location:accueil.php');
+header('location:index.php?page=accueil');
