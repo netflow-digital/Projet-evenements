@@ -14,7 +14,7 @@
     <nav id="menuConnexion">
         <ul>
             <li><?php if (!isset($_SESSION["id_utilisateurs"])) : ?><a href="index.php?page=connexion">Se connecter</a><?php endif ?></li>
-            <li> <?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="./deconnexion.php">Se déconnecter</a><?php endif ?></li>
+            <li> <?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="deconnexion.php">Se déconnecter</a><?php endif ?></li>
             <li><?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="index.php?page=monCompte">Mon compte</a><?php endif ?></li>
             <li><?php if (isset($_SESSION["id_utilisateurs"])) : ?><a href="index.php?page=listeEvents">Mes événements</a><?php endif ?></li>
             <li><?php if (isset($_SESSION['role_utilisateurs']) && $_SESSION['role_utilisateurs'] == 'admin') : ?><a href="index.php?page=creationEvent"> Créer un événement </a><?php endif ?> </li>

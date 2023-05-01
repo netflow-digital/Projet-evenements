@@ -56,7 +56,7 @@
 
                     <?php
                     //connection bdd
-                    include './config/connexionBdd.php';
+                    include DB_CONFIG;
                     // Requête SQL pour récupérer les lieux potentiel pour les événements"
                     $reponse = 'SELECT * FROM lieux';
                     $resultat = $cnx->query($reponse);

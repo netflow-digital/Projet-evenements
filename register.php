@@ -1,5 +1,5 @@
 <?php
-include './config/config.php';
+include './src/config/config.php';
 session_start();
 
 
@@ -19,7 +19,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
 }
 //// connexion à la base de donnée
 try {
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
     ///vérifier qu'il n'y a pas déja un utilisateur avec cet email
     $stmtEmail = $cnx->prepare('SELECT * FROM utilisateurs WHERE email=:email');
     $stmtEmail->bindParam(':email', $email);

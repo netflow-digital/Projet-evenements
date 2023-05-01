@@ -1,11 +1,11 @@
 <?php
-include './config/config.php';
+include './src/config/config.php';
 // permet d'utiliser des sessions ($_SESSION)
 session_start();
 
 //connexion BDD
 try {
-    include './config/connexionBdd.php';
+    include './src/config/connexionBdd.php';
     //vérifier s'il existe un utilisateur dans la bdd avec cet email
     $stmt = $cnx->prepare("SELECT * FROM `utilisateurs` WHERE email=:email");
     $email = htmlspecialchars($_POST['email']);

@@ -1,7 +1,7 @@
 <?php
 //connexion à la bdd
 try {
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
     $stmt = $cnx->prepare("SELECT * FROM utilisateurs");
     $stmt->execute();
     $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);

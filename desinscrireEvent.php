@@ -1,5 +1,5 @@
 <?php
-include './config/config.php';
+include './src/config/config.php';
 session_start();
 //récupérer l'ID de l'utilisateurs
 $id_utilisateurs = $_SESSION['id_utilisateurs'];
@@ -9,7 +9,7 @@ $id_events = $_GET['id_evenement'];
 
 // se désinscire de l'event
 try {
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
     $stmt = $cnx->prepare('DELETE FROM `inscrire` WHERE `inscrire`.`id_utilisateurs` = :id_utilisateurs AND `inscrire`.`id_events` = :id_events');
     $stmt->bindParam(':id_utilisateurs', $id_utilisateurs);
     $stmt->bindParam(':id_events', $id_events);

@@ -3,7 +3,7 @@
 $id_utilisateurs = isset($_SESSION['id_utilisateurs']) ? $_SESSION['id_utilisateurs'] : null;
 
 try {
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
     $stmt = $cnx->prepare("CALL getEvenementsInscrits(:id_utilisateurs)");
     $stmt->bindParam(':id_utilisateurs', $id_utilisateurs, PDO::PARAM_INT);
     $stmt->execute();
@@ -64,7 +64,7 @@ try {
                 </div>
                 <p> Organisé par : <?= $evt['nomOrganisateur'] ?></p>
                 <div class="disposition">
-                    <button><a href="evenements.php?id= <?= $evt['id_events'] ?>"> Voir les détails</a></button>
+                    <button><a href="index.php?page=evenements&id=<?= $evt['id_events'] ?>"> Voir les détails</a></button>
                     <p>Nombre de places : <?= $evt['nbPersonnesMax'] ?></p>
                 </div>
                 <div class="disposition">

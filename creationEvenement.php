@@ -1,5 +1,5 @@
 <?php
-include './config/config.php';
+include './src/config/config.php';
 session_start();
 $formError = [];
 
@@ -25,7 +25,7 @@ if (isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['date
 
 //connexion à la base de donnée
 try {
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
     //vérifier qu'il n'y a pas d'événemenet avec le même nom, le même jour
     $stmtTitleDate = $cnx->prepare('SELECT * FROM evenements WHERE evenements.titre=:titre AND evenements.date=:date');
     $stmtTitleDate->bindParam(':titre', $titre);
@@ -62,7 +62,7 @@ try {
 
     // enregistrer les données dans la base de donnée
     ////faire la requête SQL
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
     $stmt = $cnx->prepare("INSERT INTO evenements(id_events, titre, description, date, nbPersonnesMax, imageSrc,id_utilisateurs, id_lieux) VALUES(NULL, :titre, :description, :date, :nbPersonnesMax, :imageSrc, :id_utilisateurs, :id_lieux) ");
     $stmt->bindParam(':titre', $titre);
     $stmt->bindParam(':description', $description);

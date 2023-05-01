@@ -4,7 +4,7 @@
     try {
         // Connexion à la base de données evenements
         $user = $_SESSION['id_utilisateurs'];
-        include './config/connexionBdd.php';
+        include DB_CONFIG;
 
         // Requête SQL pour récupérer les événements auxquels l'utilisateur est inscrit
         $stmt = $cnx->prepare("SELECT * FROM `listeUtilisateurInscritAEvent` WHERE id_utilisateurs=:user");

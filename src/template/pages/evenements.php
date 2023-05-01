@@ -3,7 +3,7 @@ $id = $_GET["id"];
 
 try {
     // connexion à la bdd
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
     //requête préparée avec un paramètre => id=?
     $stmt = $cnx->prepare("SELECT * FROM liste_events WHERE id_events=?");
     $stmt->execute([$id]); //méthode execute() attend un tableau de valeurs en paramètre correspondant aux paramètres de la requête SQL

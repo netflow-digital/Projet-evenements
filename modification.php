@@ -6,7 +6,7 @@ session_start();
 $user = $_SESSION['id_utilisateurs'];
 //connexion à la base de donnée
 try {
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
 } catch (Exception $e) {
     $e = 'Désolée la connexion à la base de donnée ne marche pas pour le moment';
     echo $e;

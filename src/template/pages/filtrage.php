@@ -4,7 +4,7 @@
     $requete = "SELECT evenements.*, lieux.nom, lieux.adresse, lieux.codePostal, lieux.ville, utilisateurs.nom AS nomOrganisateur, CASE WHEN ue.id_utilisateurs IS NULL THEN 'Non inscrit' ELSE 'Inscrit' END AS inscription, (evenements.nbPersonnesMax - (SELECT COUNT(inscrire.id_utilisateurs) FROM inscrire WHERE inscrire.id_events = evenements.id_events)) AS nbPlacesRestantes FROM evenements LEFT JOIN inscrire ue ON evenements.id_events=ue.id_events" . (!empty($_SESSION['id_utilisateurs']) ? " AND ue.id_utilisateurs = :userId" : "") . " INNER JOIN lieux ON evenements.id_lieux=lieux.id_lieux" . (!empty($_POST['lieuxId']) ? " AND lieux.id_lieux=:lieuxId" : "") . " INNER JOIN utilisateurs ON utilisateurs.id_utilisateurs=evenements.id_utilisateurs" .  (!empty($_POST['dateEvt']) ? " WHERE evenements.date = DATE_FORMAT(:dateEvt,'%Y-%m-%d %H:%i:%s')" : "");
     // connexion bdd
     try {
-        include './config/connexionBdd.php';
+        include DB_CONFIG;
         $stmt = $cnx->prepare($requete);
         if (!empty($_SESSION['id_utilisateurs'])) {
             $stmt->bindParam(':userId', $_SESSION['id_utilisateurs']);

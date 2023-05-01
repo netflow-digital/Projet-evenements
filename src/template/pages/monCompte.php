@@ -15,7 +15,7 @@
 $userConnect = $_SESSION['id_utilisateurs'];
 // Connexion à la base de donnée
 try {
-    include './config/connexionBdd.php';
+    include DB_CONFIG;
     $stmt = $cnx->prepare("SELECT nom, prenom FROM `utilisateurs` WHERE id_utilisateurs=:userConnect ");
     $stmt->bindParam(':userConnect', $userConnect);
     $stmt->execute();
